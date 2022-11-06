@@ -2,13 +2,27 @@
 import Link from "next/link";
 import Head from 'next/head';
 import Title from "../components/title";
+import { getProducts } from "../lib/products";
 
-const products = [
-  { id: 1, title: "First Product" },
-  { id: 1, title: "Second Product" },
-]
+/* fetch products on server side 
+with incremental static regeneration (ISR no longer fully static website, need node / nextJS support platform)
 
-export default function HomePage() {
+add option to object from 'getStaticprops' revalidate (renew per X seconds)
+will set the content to be expired and IF the page is reloaded it will update the data.*/
+
+export async function getStaticProps() {
+  console.log("[HomePage] getStaticProps()");
+  // fetch content from a URL given by the CMS (from other file).
+  const products = await getProducts();
+  // Set the products into props objects.
+  return { 
+    props: { products },
+    // good if pages may change, but renewed data is not very important.
+    revalidate: 1 * 60 // seconds
+  };
+};
+
+export default function HomePage({ products }) {
   console.log("[HomePage] render: ", products);
   return (
     <>
@@ -28,7 +42,6 @@ export default function HomePage() {
               {product.title}
             </li>
           ))}
-          
         </ul>
       </main>
     </>

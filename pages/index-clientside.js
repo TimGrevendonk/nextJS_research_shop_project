@@ -2,13 +2,24 @@
 import Link from "next/link";
 import Head from 'next/head';
 import Title from "../components/title";
+import { useEffect, useState } from "react";
+import { getProducts } from "../lib/products";
 
-const products = [
-  { id: 1, title: "First Product" },
-  { id: 1, title: "Second Product" },
-]
 
 export default function HomePage() {
+  // fetch data WHEN component is "mounted" like plain react component. 
+  const [products, setProducts] = (
+  // usestate hook returns parameter value in parentessis (empty array that binds to "products") and a function call (setProducts) to change the stata of "products".
+    useState([]) 
+  );
+  // useEffect hook: execute function as soon as component IS mounted.
+  useEffect(() => {
+    // Http request to get products (asnyc so needs then or await).
+    getProducts().then(setProducts);
+    // getProducts().then((products) => setProducts(products)); // elaborative syntax method.
+  // the empty array is the dependencies array, if empty it will only be executed once.
+  }, []);
+
   console.log("[HomePage] render: ", products);
   return (
     <>
@@ -22,10 +33,10 @@ export default function HomePage() {
         <Title>NextJS tim shop <Link href="https://nextjs.org">Next.js!</Link></Title>
         <ul>
           {/* A foreach using map (mapping items into HTML outputs) */}
-          {products.map((product) => (
+          {products.map((products) => (
             // Every react component needs a key.
-            <li key={product.id}>
-              {product.title}
+            <li key={products.id}>
+              {products.title}
             </li>
           ))}
           

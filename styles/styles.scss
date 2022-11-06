@@ -1,0 +1,20 @@
+// import fonts and fontawesome if needed.
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200;0,400;0,700;1,400&display=swap');
+
+// override and mixins.
+@import "core/variables";
+@import "mixins/colorCombo";
+
+// reset and general styles.
+@import "core/reboot";
+@import "general";
+
+// external imports.
+
+
+// custom code and partials.
+@import "pages/homepage";
+@import "components/navbar";
+@import "components/title";
+
+

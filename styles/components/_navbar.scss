@@ -1,0 +1,28 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+
+    ul {
+        list-style: none;
+        padding: 0;
+
+
+        li {
+            display: inline;
+            
+            &:not(:first-child) { 
+                margin-left: 1.2rem;
+            }
+
+            a {
+                color: peru;
+                text-decoration: none;
+
+                &:hover, &:focus {
+                    text-decoration: underline;
+                    text-decoration-style: double;
+                } 
+            }
+        }
+    }
+}

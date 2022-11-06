@@ -2,13 +2,20 @@
 import Link from "next/link";
 import Head from 'next/head';
 import Title from "../components/title";
+import { getProducts } from "../lib/products";
 
-const products = [
-  { id: 1, title: "First Product" },
-  { id: 1, title: "Second Product" },
-]
+/* fetch products on server side */
 
-export default function HomePage() {
+// this is the way to keep static web pages for elsision!!!!
+export async function getStaticProps() {
+  console.log("[HomePage] getStaticProps()");
+  // fetch content from a URL given by the CMS (from other file).
+  const products = await getProducts();
+  // Set the products into props objects.
+  return { props: { products } }
+};
+
+export default function HomePage({ products }) {
   console.log("[HomePage] render: ", products);
   return (
     <>
@@ -28,7 +35,6 @@ export default function HomePage() {
               {product.title}
             </li>
           ))}
-          
         </ul>
       </main>
     </>

@@ -1,0 +1,6 @@
+@use "sass:color";
+// mixin to set both front and background color
+@mixin colorsCombo($color, $background) {
+  color: $color;
+  background-color: $background;
+}
