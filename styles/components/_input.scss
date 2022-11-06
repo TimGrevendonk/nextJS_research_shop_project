@@ -1,0 +1,34 @@
+.formfield {
+    display: block;
+    margin-top: 0.5rem;
+    margin-bottom: 0.2rem;
+
+    > span {
+        display: block;
+    }
+}
+
+.input {
+    border: 1px solid lightgray;
+    border-radius: 0.3rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    padding-top: 0.2rem;
+    padding-bottom: 0.2rem;
+}
+
+.button {
+    background-color: lightgreen;
+    padding: 1rem;
+    border-radius: 0.4rem;
+    border: none;
+    font-size: 1.2rem;
+
+    &:hover {
+        background-color: darken(lightgreen, 10);
+    }
+}
+
+.formerror {
+    color: red;
+}

@@ -1,8 +1,12 @@
 .homepage {
-    ul {
+    color: $theme-text;
+    background-color: $theme-background;
+
+     ul {
         margin: 1rem;
         flex-direction: row;
         display: flex;
         flex-wrap: wrap;
+        
     }
 }

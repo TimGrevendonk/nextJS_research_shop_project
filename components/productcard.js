@@ -5,7 +5,9 @@ export default function ProductCard({ product }) {
     return (
         <li className="productcard">
             <Link href={`/products/${product.id}`}>
-                <img src={product.pictureUrl} alt="dummy"/>
+                <Image src={product.pictureUrl} alt=""
+                width={320} height={240}
+                />
                 <div>
                     <h1>
                         {product.title}

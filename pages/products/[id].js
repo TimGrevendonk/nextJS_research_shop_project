@@ -1,6 +1,8 @@
 // [id] is the path parameter to idenitfy each product (page).
 
 import Head from "next/head";
+import Image from "next/image";
+import Page from "../../components/page";
 import Title from "../../components/title";
 import { ApiError } from "../../lib/api";
 import { getProducts, getProduct } from "../../lib/products";
@@ -46,16 +48,18 @@ export async function getStaticProps({params: { id }}){
 export default function ProductPage({product}){
     console.log("[productPage] rendered:");
     return(
-        <>
-            <Head>
-                <title>{product.title} - Tim Shop</title>
-            </Head>
-            <main>
-                <Title>{product.title}</Title>
+        <Page title={product.title}>
+            <div className="productpage">
+                <Image src={product.pictureUrl} alt=""
+                width={680} height={480}
+                />
+                <p>
+                    <b>{product.price}</b>
+                </p>
                 <p>
                     {product.description}
                 </p>
-            </main>
-        </>
+            </div>
+        </Page>
     );
 }

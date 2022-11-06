@@ -1,0 +1,19 @@
+.productpage {
+    border-radius: 1rem;
+    border: solid 1px lightgray;
+    display: flex;
+    flex-direction: column;
+    color: $theme-text;
+    background-color: $theme-background;
+
+    img {
+        border-radius: 1rem;
+        box-shadow: 0rem 0rem 0.3rem greenyellow;
+        width: auto;
+        object-fit: cover;
+    }
+
+    > *:not(img) {
+        padding: 0.4rem;
+    }
+}
