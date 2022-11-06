@@ -3,6 +3,7 @@ import Link from "next/link";
 import Head from 'next/head';
 import Title from "../components/title";
 import { getProducts } from "../lib/products";
+import ProductCard from "../components/productcard";
 
 /* fetch products on server side 
 with incremental static regeneration (ISR no longer fully static website, need node / nextJS support platform)
@@ -38,9 +39,10 @@ export default function HomePage({ products }) {
           {/* A foreach using map (mapping items into HTML outputs) */}
           {products.map((product) => (
             // Every react component needs a key.
-            <li key={product.id}>
-              <Link href={`/products/${product.id}`}>{product.title}</Link>
-            </li>
+            <div key={product.id}>
+              {/* insert productCard compenent, giving it the product parameter as value as "product" */}
+              <ProductCard product={product}></ProductCard>
+            </div>
           ))}
         </ul>
       </main>
