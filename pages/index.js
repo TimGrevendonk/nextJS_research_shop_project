@@ -23,7 +23,7 @@ export async function getStaticProps() {
 };
 
 export default function HomePage({ products }) {
-  console.log("[HomePage] render: ", products);
+  console.log("[HomePage] render: ");
   return (
     <Page title={"indoor plants"}>
       <div className="homepage">
