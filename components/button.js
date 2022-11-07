@@ -1,8 +1,9 @@
-export default function button({ type, children }) {
+// ...props is just an unpacked object with all possible parameters.
+export default function button({ ...props }) {
   console.log('[button] rendered:')
    return (
-    <button type={type} className="button">
-        {children}
+    <button type={props.type} onClick={props.onClick} className="button">
+        {props.children}
     </button>
   );
 }

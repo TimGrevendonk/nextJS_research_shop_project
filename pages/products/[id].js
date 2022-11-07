@@ -2,6 +2,7 @@
 
 import Head from "next/head";
 import Image from "next/image";
+import AddToCartWidget from "../../components/addtocart";
 import Page from "../../components/page";
 import Title from "../../components/title";
 import useUser from "../../hooks/user";
@@ -60,7 +61,10 @@ export default function ProductPage({product}){
                 <p>
                     <b>{product.price}</b>
                     {user && (
+                        <>
                         <span> Only for {user.name}!</span>
+                        <AddToCartWidget productId={product.id}/>
+                        </>
                     )}
                 </p>
                 <p>

@@ -21,11 +21,20 @@ export default function NavBar() {
                 </Link>
             </li>
             {user ? (
+                <>
+                <li>
+                    <Link href="/cart">
+                        <Button>
+                            Cart
+                        </Button>
+                    </Link>
+                </li>
                 <li onClick={signOut}>
                     <Button>
                         Sign Out {user.name}
                     </Button>
                 </li>
+                </>
             ) : (
                 <li>
                     <Button>
